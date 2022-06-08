@@ -20,4 +20,4 @@
 
 ## 개발일지
 
-[day1](www.naver.com)
+[day1](개발일지/day1.md)
