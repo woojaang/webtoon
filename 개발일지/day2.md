@@ -6,7 +6,7 @@
 
 db에 태그생성 완료
 
-<img src="day2.assets/태그테이블.PNG" alt="태그테이블" style="zoom:75%;" />
+<img src="day2.assets/태그테이블.PNG" alt="태그테이블"  />
 
 
 
@@ -14,7 +14,7 @@ db -> dao -> service -> controller 순으로 단순히 String으로 tagName(키�
 
 화면에는 상위 20개를 뿌리주었고 sumbit하면 선택한 키워드를 배열로 받아온다.
 
-![키워드 선택](day2.assets/키워드 선택.PNG)
+<img src="day2.assets/키워드 선택.PNG" alt="키워드 선택" style="zoom:75%;" />
 
 ---------
 
