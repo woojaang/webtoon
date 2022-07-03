@@ -60,10 +60,10 @@
 </head>
 
 <body>
-	<div class="jumbotron text-center mb-5">
+	<div class="jumbotron text-center mb-5 bg-white">
 		<h1 class="text-lg-center">웹툰 뭐볼까?</h1>
 	</div>
-	<div class="container p-5">
+	<div class="container-fluid p-5 mb-5 bg-light" >
 		<h2 class="text-center">원하는 플랫폼을 선택하세요!</h2>
         <p class="text-center mb-5">추후 다양한 플랫폼을 추가할 예정입니다..</p>
 		<div class="text-center">
@@ -73,31 +73,64 @@
 				예정..</button>
 		</div>
 	</div>
-	<div class="container">
-		<h2 class="text-center">원하는 태그를 선택해주세요!</h2>
-        <p class="text-center">중복선택이 가능합니다!(너무 많이 선택하면 검색이 안 될 수 있어요..)</p>
-		<form id="submitTag" class="text-center" action="/result" method="post">
-			<c:forEach var='tag' items="${tags}" varStatus="status" end="25">
-			
-			
-				<div class="form-check-inline pb-3">
-					<label class="form-check-label" for="${status.count}"> <input
-						type="checkbox" class="form-check-input" id="${status.count}" 
-						name="${status.count}" value="${tag}">
-						<button name="" type="button"
-							class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
-					</label>
-				</div>
-			
-			</c:forEach>
-			
-			<br>
-			
-			<div class="text-center mt-5">
-				<button id="submitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
-				
+	<div class="container-fluid">
+		<h2 class="text-center mb-5">원하는 방식을 선택하고 키워드를 골라주세요!</h2>
+		<div class="row">
+			<div class="col text-center">
+				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#demo">
+                    	선택한 키워드 중 하나이상 포함하는 웹툰 모두 추천받기
+                </button>
+                <div id="demo" class="collapse">
+                	<form id="submitTag" class="text-center" action="/result" method="post">
+						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
+						
+						
+							<div class="form-check-inline pb-3">
+								<label class="form-check-label" for="${status.count}"> <input
+									type="checkbox" class="form-check-input" id="${status.count}" 
+									name="${status.count}" value="${tag}">
+									<button name="" type="button"
+										class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
+								</label>
+							</div>
+						
+						</c:forEach>
+						<br>
+						<div class="text-center mt-5">
+							<button id="submitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
+							
+						</div>
+					</form>
+                </div>
 			</div>
-		</form>
+			<div class="col text-center">
+				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#demo2">
+                    	선택한 키워드를 동시에 포함하는 웹툰만 추천받기
+                </button>
+                <div id="demo2" class="collapse">
+                	<form id="submitTag" class="text-center" action="/result" method="post">
+						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
+						
+						
+							<div class="form-check-inline pb-3">
+								<label class="form-check-label" for="${status.count}"> <input
+									type="checkbox" class="form-check-input" id="${status.count}" 
+									name="${status.count}" value="${tag}">
+									<button name="" type="button"
+										class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
+								</label>
+							</div>
+						
+						</c:forEach>
+						<br>
+						<div class="text-center mt-5">
+							<button id="submitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
+							
+						</div>
+					</form>
+                </div>
+			</div>
+		</div>
 	</div>
 	<br><br><br><br><br>
 </body>

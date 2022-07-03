@@ -25,10 +25,10 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center mb-5">
-        <h1 class="text-lg-center">웹툰 뭐보지?</h1>
+    <div class="jumbotron text-center mb-5 bg-white">
+        <h1 class="text-lg-center">웹툰 뭐볼까?</h1>
     </div>
-    <div class="container p-5">
+    <div class="container-fluid p-5 mb-5 bg-light">
 		<h2 class="text-center">원하는 플랫폼을 선택하세요!</h2>
         <p class="text-center mb-5">추후 다양한 플랫폼을 추가할 예정입니다..</p>
 		<div class="text-center">
