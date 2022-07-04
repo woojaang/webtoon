@@ -5,7 +5,7 @@
 <mapper
 	namespace="com.woojaang.webtoon_recommendation.model.dao.TagDao">
 
-	<select id="getTags" parameterType="String" resultType="String"> 
+	<select id="getTags" resultType="String"> 
 		select TagName
 		from tag
 	</select>

@@ -45,13 +45,13 @@
 				$(this).attr("name", "checked")
 			}
 		})
-		$("#submitBtn").click(function() {
+		$("#oneSubmitBtn").click(function() {
 			console.log("submit")
 			$(".btn-outline-success[name=checked]").each(function() {
 				$(this).prev().prop('checked', true)
 				console.log($(this).prev().prop('checked'))
 			})
-			$("#submitTag").submit()
+			$("#oneSubmitTag").submit()
 			
 			
 		})
@@ -81,14 +81,14 @@
                     	선택한 키워드 중 하나이상 포함하는 웹툰 모두 추천받기
                 </button>
                 <div id="demo" class="collapse">
-                	<form id="submitTag" class="text-center" action="/result" method="post">
+                	<form id="oneSubmitTag" class="text-center" action="/result" method="post">
 						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
 						
 						
 							<div class="form-check-inline pb-3">
 								<label class="form-check-label" for="${status.count}"> <input
 									type="checkbox" class="form-check-input" id="${status.count}" 
-									name="${status.count}" value="${tag}">
+									name="checkedValue" value="${tag}">
 									<button name="" type="button"
 										class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
 								</label>
@@ -97,7 +97,7 @@
 						</c:forEach>
 						<br>
 						<div class="text-center mt-5">
-							<button id="submitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
+							<button id="oneSubmitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
 							
 						</div>
 					</form>
@@ -108,7 +108,7 @@
                     	선택한 키워드를 동시에 포함하는 웹툰만 추천받기
                 </button>
                 <div id="demo2" class="collapse">
-                	<form id="submitTag" class="text-center" action="/result" method="post">
+                	<form id="allSubmitTag" class="text-center" action="/result" method="post">
 						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
 						
 						
@@ -124,7 +124,7 @@
 						</c:forEach>
 						<br>
 						<div class="text-center mt-5">
-							<button id="submitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
+							<button id="allSubmitBtn" type="button" class="btn btn-primary">웹툰 추천받기!!!</button>
 							
 						</div>
 					</form>
