@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,13 @@
 				예정..</button>
 		</div>
 	</div>
-	<div> ${wi.webtoonNo},${wi.webtoonName},${wi.artist},${wi.star},${wi.completed},${wi.thumbnail},${wi.detailUrl},${wi.detail}</div>
+	<c:forEach var="wt" items="${wi}"> 
+		<div> ${wt.webtoonNo},${wt.webtoonName},${wt.artist},${wt.star},${wt.completed},${wt.detail}
+		<br/>
+		--------------
+		</div>
+	</c:forEach>
+	
 	
 
 </body>

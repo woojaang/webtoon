@@ -11,4 +11,6 @@ public interface WebtoonInfoDao {
 	public List<WebtoonInfo> serchMoreThanOne(String[] tags); 
 	public List<WebtoonInfo> serchAll(String[] tags);
 	public WebtoonInfo test(String tag);
+	public WebtoonInfo test2(String[] tag);
+	public List<WebtoonInfo> test3(String[] tag);
 }

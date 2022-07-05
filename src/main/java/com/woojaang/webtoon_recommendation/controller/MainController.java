@@ -43,10 +43,11 @@ public class MainController {
 		String[] arr = request.getParameterValues("checkedValue");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("result");
-		WebtoonInfo wi = wservice.test("사노라면");
+		String[] a = {"무료","개그"};
+		List<WebtoonInfo> wi = wservice.test3(a);
+		System.out.println(wi.get(0).getWebtoonName());
+		System.out.println(wi.get(1).getWebtoonName());
 		mv.addObject("wi", wi);
-		System.out.println(wi.getWebtoonNo());
-		System.out.println(wi.getWebtoonName());
 		return mv;
 	}
 }

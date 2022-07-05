@@ -15,12 +15,28 @@
 		from tag
 	</select>
 	
-	<select id="test" resultType="WebtoonInfo"> 
-		<!-- select webtoonNo, webtoonName, artist, star, completed, thumbnail, detailUrl, detail, tags -->
+	<select id="test" resultType="WebtoonInfo">
 		select *
 		from webtoon
 		where webtoonName = #{tag};
-		<!-- where webtoonNo like concat('%', #{tag}, '%');-->
+	</select>
+	
+	<select id="test2" parameterType="java.util.ArrayList" resultType="WebtoonInfo"> 
+		select *
+		from webtoon
+		where
+			<foreach collection="array" item="item" index="index" separator=" and ">
+				tags like concat('%', #{item}, '%')
+			</foreach>
+	</select>
+	
+	<select id="test3" parameterType="java.util.ArrayList" resultType="WebtoonInfo"> 
+		select *
+		from webtoon
+		where
+			<foreach collection="array" item="item" index="index" separator=" and ">
+				tags like concat('%', #{item}, '%')
+			</foreach>
 	</select>
 	
 </mapper>

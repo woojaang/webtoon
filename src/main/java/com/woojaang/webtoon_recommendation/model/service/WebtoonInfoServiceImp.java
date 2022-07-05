@@ -29,5 +29,15 @@ public class WebtoonInfoServiceImp implements WebtoonInfoService{
 		return dao.test(tag);
 	}
 	
+	@Override
+	public WebtoonInfo test2(String[] tag) {
+		return dao.test2(tag);
+	}
+	
+	@Override
+	public List<WebtoonInfo> test3(String[] tag) {
+		return dao.test3(tag);
+	}
+	
 
 }

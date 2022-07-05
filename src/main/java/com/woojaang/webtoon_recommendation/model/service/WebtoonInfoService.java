@@ -8,4 +8,6 @@ public interface WebtoonInfoService {
 	List<WebtoonInfo> serchMoreThanOne(String[] tags);
 	List<WebtoonInfo> serchAll(String[] tags);
 	WebtoonInfo test(String tag);
+	WebtoonInfo test2(String[] tag);
+	List<WebtoonInfo> test3(String[] tag);
 }
