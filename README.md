@@ -27,3 +27,8 @@
 [day3](개발일지/day3.md)
 
 [day4](개발일지/day4.md)
+
+[day5](개발일지/day5.md)
+
+[day6](개발일지/day6.md)
+

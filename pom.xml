@@ -13,6 +13,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webtoon_recommendation</name>
 	<description>recommend webtoon</description>
+	
+	<packaging>war</packaging> 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -54,6 +56,11 @@
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		    <scope>provided</scope>
 		</dependency>
 		
 		

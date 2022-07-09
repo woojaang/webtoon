@@ -2,7 +2,7 @@ package com.woojaang.webtoon_recommendation.model.dto;
 
 import java.io.Serializable;
 
-public class WebtoonInfo implements Serializable{
+public class WebtoonInfo implements Serializable, Comparable<WebtoonInfo>{
 	private int webtoonNo;
 	private String webtoonName;
 	private String artist;
@@ -97,6 +97,17 @@ public class WebtoonInfo implements Serializable{
 
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+
+	@Override
+	public int compareTo(WebtoonInfo o) {
+		if (Float.parseFloat(this.star)-Float.parseFloat(o.getStar())>0) {
+			return -1;
+		}
+		else {
+			return 1;
+		}
+		
 	}
 	
 	

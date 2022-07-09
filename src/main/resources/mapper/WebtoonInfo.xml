@@ -6,13 +6,21 @@
 	namespace="com.woojaang.webtoon_recommendation.model.dao.WebtoonInfoDao">
 
 	<select id="serchMoreThanOne" parameterType="String" resultType="WebtoonInfo"> 
-		select TagName
-		from tag
+		select *
+		from webtoon
+		where
+			<foreach collection="array" item="item" index="index" separator=" or ">
+				tags like concat('%', #{item}, '%')
+			</foreach>
 	</select>
 	
 	<select id="serchAll" parameterType="String" resultType="WebtoonInfo"> 
-		select TagName
-		from tag
+		select *
+		from webtoon
+		where
+			<foreach collection="array" item="item" index="index" separator=" and ">
+				tags like concat('%', #{item}, '%')
+			</foreach>
 	</select>
 	
 	<select id="test" resultType="WebtoonInfo">

@@ -25,7 +25,7 @@
 	button[name="checked"] {
 	color: rgb(255, 255, 255);
 	background-color: rgb(40, 167, 69);
-}
+	}
 </style>
 
 
@@ -51,9 +51,24 @@
 				$(this).prev().prop('checked', true)
 				console.log($(this).prev().prop('checked'))
 			})
+			$(".btn-outline-success[name='']").each(function() {
+				$(this).prev().prop('checked', false)
+				console.log($(this).prev().prop('checked'))
+			})
 			$("#oneSubmitTag").submit()
-			
-			
+		})
+		
+		$("#allSubmitBtn").click(function() {
+			console.log("submit")
+			$(".btn-outline-success[name=checked]").each(function() {
+				$(this).prev().prop('checked', true)
+				console.log($(this).prev().prop('checked'))
+			})
+			$(".btn-outline-success[name='']").each(function() {
+				$(this).prev().prop('checked', false)
+				console.log($(this).prev().prop('checked'))
+			})
+			$("#allSubmitTag").submit()
 		})
 	})
 </script>
@@ -61,7 +76,9 @@
 
 <body>
 	<div class="jumbotron text-center mb-5 bg-white">
-		<h1 class="text-lg-center">웹툰 뭐볼까?</h1>
+		<a href="/">
+			<h1 id="index" class="text-lg-center">웹툰 뭐볼까?</h1>
+		</a>
 	</div>
 	<div class="container-fluid p-5 mb-5 bg-light" >
 		<h2 class="text-center">원하는 플랫폼을 선택하세요!</h2>
@@ -77,18 +94,18 @@
 		<h2 class="text-center mb-5">원하는 방식을 선택하고 키워드를 골라주세요!</h2>
 		<div class="row">
 			<div class="col text-center">
-				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#demo">
+				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#oneCol">
                     	선택한 키워드 중 하나이상 포함하는 웹툰 모두 추천받기
                 </button>
-                <div id="demo" class="collapse">
-                	<form id="oneSubmitTag" class="text-center" action="/result" method="post">
+                <div id="oneCol" class="collapse">
+                	<form id="oneSubmitTag" class="text-center" action="/resultOne" method="post">
 						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
 						
 						
 							<div class="form-check-inline pb-3">
 								<label class="form-check-label" for="${status.count}"> <input
 									type="checkbox" class="form-check-input" id="${status.count}" 
-									name="checkedValue" value="${tag}">
+									name="checkedOne" value="${tag}">
 									<button name="" type="button"
 										class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
 								</label>
@@ -104,18 +121,18 @@
                 </div>
 			</div>
 			<div class="col text-center">
-				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#demo2">
+				<button type="button" class="btn btn-outline-success mb-3 btn-lg" data-toggle="collapse" data-target="#allCol">
                     	선택한 키워드를 동시에 포함하는 웹툰만 추천받기
                 </button>
-                <div id="demo2" class="collapse">
-                	<form id="allSubmitTag" class="text-center" action="/result" method="post">
+                <div id="allCol" class="collapse">
+                	<form id="allSubmitTag" class="text-center" action="/resultAll" method="post">
 						<c:forEach var='tag' items="${tags}" varStatus="status" end="20">
 						
 						
 							<div class="form-check-inline pb-3">
 								<label class="form-check-label" for="${status.count}"> <input
 									type="checkbox" class="form-check-input" id="${status.count}" 
-									name="${status.count}" value="${tag}">
+									name="checkedAll" value="${tag}">
 									<button name="" type="button"
 										class="btn btn-lg btn-outline-success mr-1 font-weight-bold" style="border-width:2px; border-radius : 25px"><c:out value="${tag}" /></button>
 								</label>

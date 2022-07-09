@@ -1,6 +1,7 @@
 package com.woojaang.webtoon_recommendation.controller;
 
 import java.util.List;
+import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,16 +39,39 @@ public class MainController {
 		return mv;
 	}
 	
-	@PostMapping("/result")
-	public ModelAndView result(HttpServletRequest request) {
-		String[] arr = request.getParameterValues("checkedValue");
+	@PostMapping("/resultOne")
+	public ModelAndView resultOne(HttpServletRequest request) {
+		String[] arr = request.getParameterValues("checkedOne");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("result");
-		String[] a = {"무료","개그"};
-		List<WebtoonInfo> wi = wservice.test3(a);
-		System.out.println(wi.get(0).getWebtoonName());
-		System.out.println(wi.get(1).getWebtoonName());
+		List<WebtoonInfo> wi = wservice.serchMoreThanOne(arr);
+		if (wi.isEmpty()) {
+			mv.setViewName("resultNull");
+		}
+		else {
+			mv.setViewName("resultOne");
+		}
+		Collections.sort(wi);
+		mv.addObject("tags", arr);
+		mv.addObject("wi", wi);
+		return mv; 
+	}
+	
+	@PostMapping("/resultAll")
+	public ModelAndView resultAll(HttpServletRequest request) {
+		String[] arr = request.getParameterValues("checkedAll");
+		ModelAndView mv = new ModelAndView();
+		List<WebtoonInfo> wi = wservice.serchAll(arr);
+		if (wi.isEmpty()) {
+			mv.setViewName("resultNull");
+		}
+		else {
+			mv.setViewName("resultAll");
+		}
+		Collections.sort(wi);
+		mv.addObject("tags", arr);
 		mv.addObject("wi", wi);
 		return mv;
 	}
+	
+
 }
